@@ -1,7 +1,7 @@
-# Jogo_de_Memória
+# Jogo de Memória
 
-Versão computacional do jogo de memória escrito em linguagem C.
-Pode funcionar em LINUX e em Windows.
+- Versão computacional do jogo de memória escrito em linguagem C.
+- Pode funcionar em LINUX e em Windows.
 
 # Status
 
@@ -9,14 +9,14 @@ Concluído.
 
 # Features
 
-Identação;
-Declaração de variáveis;
-Utilização do struct;
-Funções e matrizes;
-Comentários;
-Arquivos e bibliotecas;
-Makefile;
-Cor.
+- Identação;
+- Declaração de variáveis;
+- Utilização do struct;
+- Funções e matrizes;
+- Comentários;
+- Arquivos e bibliotecas;
+- Makefile;
+- Cor.
 
 # Pré Requisitos
 
@@ -24,15 +24,17 @@ Antes de começar, é bom ter um editor para trabalhar com o código como [VSCod
 
 # Acesso ao projeto
 
+- O Projeto pode ser acessado pelo link https://github.com/NavarroSaulo/memory-game-c
+
 # Contribuição
 
-Nícolas Brisque.
+- Nícolas Brisque.
 
 # Autores
 
-Saulo Navarro;
-Laura Jeveaux;
-Gabriela Novais.
+- Saulo Navarro;
+- Laura Jeveaux;
+- Gabriela Novais.
 
 # Licença
 
