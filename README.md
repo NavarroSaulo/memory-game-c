@@ -26,6 +26,10 @@ Antes de começar, é bom ter um editor para trabalhar com o código como [VSCod
 
 - O Projeto pode ser acessado pelo link https://github.com/NavarroSaulo/memory-game-c
 
+# Abrir e rodar o projeto
+
+- Para a execução do projeto, basta baixar o arquivo "T1-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c", abrir um terminal e compilar, após isso basta abrir o executável.
+
 # Contribuição
 
 - Nícolas Brisque.
