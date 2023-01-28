@@ -28,7 +28,7 @@ Antes de começar, é bom ter um editor para trabalhar com o código como [VSCod
 
 # Abrir e rodar o projeto
 
-- Para a execução do projeto, basta baixar o arquivo "T1-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c", abrir um terminal e compilar, após isso basta abrir o executável.
+- Para a execução do projeto, basta baixar o arquivo "T1-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c" caso utilize Windows ou "LINUX.c" caso utilize Linux, abrir um terminal e compilar, após isso basta abrir o executável.
 
 # Contribuição
 

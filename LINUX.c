@@ -3,15 +3,13 @@ Trabalho 1 de Programação 1
 Engenharia Elétrica
 Alunos: Gabriela Novais, Laura Jeveaux, Saulo Navarro
 Funções de bibliotecas usadas tem seu nome comentado em frente ao primeiro uso.
-Windows Version
+Linux Version
 */
-#include <conio.h>
 #include <locale.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <windows.h>
+#include <unistd.h>
 
 typedef struct Jogo {
     int linha;
@@ -34,7 +32,7 @@ typedef struct Status {
 } statusDoJogo;
 
 typedef struct Tabuleiro {
-    int letras[16];
+    int letras[16];          // AABBCC - 1 16 12 7
     int posicoesLetras[16];  // Vetor contendo as letras aleatorias e a posição em que cada letra vai ficar
     int novaPosicaoLetra;
     char tabuleiro[4][4];  // tabuleiro, mascara e matrizAcertos são respectivamente matrizes que armazenam as letras ordenadas aleatoriamente, a matriz de * que será jogada e uma matriz de 0's e 1's que verifica a posição que ja foi descoberta
@@ -67,14 +65,14 @@ int main() {
     t.novaPosicaoLetra = 0;
 
     // Comando de regionalização:
-    setlocale(LC_ALL, "Portuguese");  // localeh
+    setlocale(LC_ALL, "Portuguese_Brasil");  // localeh
     // Título do programa:
-    SetConsoleTitle("Jogo de Memória");  // windowsh
+    // SetConsoleTitle("Jogo de Memória");  // windowsh
     // Declaração de Variáveis
 
 // Introdução ao programa
 inicio:                  // label para um goto
-    system("cls");       // stdlib, limpa o terminal
+    system("clear");     // stdlib, limpa o terminal
     if (j.pares == 8) {  // Quando a pessoa vencer o jogo ela volta aqui por um goto
         blue();
         printf("\n\tPARABENS POR VENCER O JOGO!\n");
@@ -83,8 +81,8 @@ inicio:                  // label para um goto
     printf("\n\tTrabalho de Programacao\n");
     printf("\tAlunos: Gabriela Novais, Laura Jeveaux e Saulo Navarro\n");
     printf("\tTrabalho: Jogo da memoria\n\n");
-    printf("\n\n\tPressione qualquer tecla para continuar\n");
-    getch();  // conioh, espera a pessoa pressionar qualquer tecla para prosseguir o codigo
+    printf("\n\n\tDigite qualquer coisa para ir ao menu!\n");
+    getchar();  // stdio, espera a pessoa pressionar qualquer tecla para prosseguir o codigo
 
     do {  // Loop dependente do estado do bool novoJogo, basicamente o programa inteiro e apos ele, pergunta se deseja voltar ao menu ou nao
         mostrar_menu();
@@ -99,7 +97,7 @@ inicio:                  // label para um goto
                         printf("Favor digitar uma semente positiva");
                         goto semente;
                     }
-                    system("cls");
+                    system("clear");
 
                     gerarLetras(t.letras, j.sementinha, j.semente);
                     embaralharLetras(t.posicoesLetras, t.letras);
@@ -112,10 +110,10 @@ inicio:                  // label para um goto
                             t.novaPosicaoLetra++;  // incrementa o index do vetor posicoesLetras(posicoes aleatorias)
                         }
                     }
-                    printf("\n\tVoce tem 10 segundos para memorizar o tabuleiro");
-                    Sleep(2000);                                                   // conioh timeh, espera o parametro em ms antes de passar para a proxima linha
+                    printf("\n\tVoce tem 10 segundos para memorizar o tabuleiro\n");
+                    usleep(2000000);                                               // unistd, espera o parametro em ms antes de passar para a proxima linha
                     printarTabuleiro(j.linha, j.numlinha, j.coluna, t.tabuleiro);  // printar tabuleiro completo
-                    Sleep(10000);
+                    usleep(10000000);
                     sJ.emPartida = true;  // pra nao ficar remontando o tabuleiro
                 } while (sJ.emPartida == false);
 
@@ -137,9 +135,10 @@ inicio:                  // label para um goto
                         printarTabuleiro(j.linha, j.numlinha, j.coluna, t.mascara);
                         reset();    // Volta pra cor normal
                         j.pares++;  // Aumenta o numero de pares
-                        printf("\n\tAcertou!");
-                        Sleep(1000);
+                        printf("\n\tAcertou!\n");
+                        usleep(1000000);
                         if (j.pares == 8) {
+                            system("clear");
                             goto inicio;
                         }                                                 // Volta pro label inicio quando a pessoa vencer
                     } else {                                              // Se a pessoa errar os pares
@@ -150,23 +149,23 @@ inicio:                  // label para um goto
                         reset();
                         if (t.matrizAcertos[j.l1][j.l2] == 1) {  // Serie de verificações para ver o jeito que a pessoa errou e a coordenada volta a ser *
                         repetida:                                // label
-                            printf("\n\tCoordenada repetida, tente novamente");
+                            printf("\n\tCoordenada repetida, tente novamente\n");
                             t.mascara[j.c1][j.c2] = '*';
                         } else if (t.matrizAcertos[j.c1][j.c2] == 1) {
-                            printf("\n\tCoordenada repetida, tente novamente");
+                            printf("\n\tCoordenada repetida, tente novamente\n");
                             t.mascara[j.l1][j.l2] = '*';
                         } else {
-                            printf("\n\tErrou, tente novamente");
+                            printf("\n\tErrou, tente novamente\n");
                             t.mascara[j.l1][j.l2] = '*';
                             t.mascara[j.c1][j.c2] = '*';
                         }
-                        Sleep(1000);
+                        usleep(1000000);
                     }
                 }
                 break;
 
             case 2:  // Opção 2 do menu
-                system("cls");
+                system("clear");
                 printf("\n\tO jogo comeca quando VOCE digita um numero\n\tque sera usado para gerar o tabuleiro do jogo, \n\tem seguida ele aparecera por alguns segundos na sua tela,\n\to objetivo e digitar dois pares ordenados que contenham \n\to mesmo caracter, assim denotando esses dois espacos\n");
                 break;
 
@@ -183,7 +182,7 @@ inicio:                  // label para um goto
 }
 
 void mostrar_menu() {
-    system("cls");
+    system("clear");
     printf("\n\n\tEscolha uma das opcoes abaixo:");
     printf("\n\n\t1)Novo Jogo");
     printf("\n\t2)Como jogar");
@@ -206,17 +205,18 @@ int gerarLetras(int vetor[16], int sementeFixa, int semente) {
     for (int indexVetor = 0; indexVetor < 16; indexVetor += 2) {  // Loop que incrementa em 2 para gerar 2 letras iguais
         srand((sementeFixa) * (semente + 1));                     // função que gera um numero aleatorio
         int temp = (rand() % 26) + 65;                            // Cria uma variavel temporaria que vai ser um numero entre 1 e 26, somando 65 para as letras na tabela ascii
-        bool exists = false;
+        bool exists = false;                                      // duplicado
         for (int j = 0; j < indexVetor; ++j) {
             if (vetor[j] == temp) {
-                exists = true;
+                exists = true;  // duplicado
                 sementeFixa++;  // Incrementa a semente pra gerar letras diferentes
                 break;
             }
         }
-        if (!exists) {  // Preenche o vetor
+        if (!exists) {  // Preenche o vetor //duplicado
             vetor[indexVetor] = temp;
             vetor[indexVetor + 1] = temp;
+            // AABBCC
 
         } else {
             indexVetor -= 2;  // Força o loop de volta
@@ -225,7 +225,7 @@ int gerarLetras(int vetor[16], int sementeFixa, int semente) {
     return vetor[16];
 }
 
-int embaralharLetras(int vetorEmbaralhado[16], int vetor[16]) {  // Consiste em basicamente o mesmo do que a função gerarLetras
+int embaralharLetras(int vetorEmbaralhado[16], int vetor[16]) {  // Consiste em basicamente o mesmo do que a função gerarLetras de acordo com a posição
     for (int pos = 0; pos < 16; pos++) {
         int numPosicao = (rand() % 16);
         bool duplicado = false;
@@ -249,7 +249,7 @@ int embaralharLetras(int vetorEmbaralhado[16], int vetor[16]) {  // Consiste em 
 }
 
 void printarTabuleiro(int linha, int contadorLinha, int coluna, char tabuleiro[4][4]) {
-    system("cls");
+    system("clear");
     printf("    0   1   2   3\n\n");  // Colunas
     for (linha = 0; linha < 4; linha++) {
         printf("%d  ", contadorLinha);  // Linhas
