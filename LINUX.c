@@ -32,7 +32,7 @@ typedef struct Status {
 } statusDoJogo;
 
 typedef struct Tabuleiro {
-    int letras[16];          // AABBCC - 1 16 12 7
+    int letras[16];
     int posicoesLetras[16];  // Vetor contendo as letras aleatorias e a posição em que cada letra vai ficar
     int novaPosicaoLetra;
     char tabuleiro[4][4];  // tabuleiro, mascara e matrizAcertos são respectivamente matrizes que armazenam as letras ordenadas aleatoriamente, a matriz de * que será jogada e uma matriz de 0's e 1's que verifica a posição que ja foi descoberta
@@ -66,9 +66,6 @@ int main() {
 
     // Comando de regionalização:
     setlocale(LC_ALL, "Portuguese_Brasil");  // localeh
-    // Título do programa:
-    // SetConsoleTitle("Jogo de Memória");  // windowsh
-    // Declaração de Variáveis
 
 // Introdução ao programa
 inicio:                  // label para um goto
