@@ -200,7 +200,7 @@ int gerarLetras(int vetor[16], int sementeFixa, int semente) {
     for (int indexVetor = 0; indexVetor < 16; indexVetor += 2) {  // Loop que incrementa em 2 para gerar 2 letras iguais
         srand((sementeFixa) * (semente + 1));                     // função que gera um numero aleatorio
         int temp = (rand() % 26) + 65;                            // Cria uma variavel temporaria que vai ser um numero entre 1 e 26, somando 65 para as letras na tabela ascii
-                                                                  // bool exists = false;                                      // duplicado
+        bool exists = false;                                      // duplicado
         for (int j = 0; j < indexVetor; ++j) {
             if (vetor[j] == temp) {
                 exists = true;  // duplicado
