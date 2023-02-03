@@ -87,7 +87,7 @@ int main() {
                     } while (j.semente < 1);
                     printf("\e[H\e[2J");
 
-                    gerarLetras(t.posicoesLetras, j.sementinha, j.semente);
+                    gerarLetras(t.letras, j.sementinha, j.semente);
                     embaralharLetras(t.posicoesLetras, t.letras);
                     //  montagem do tabuleiro() de cada matriz, a mascara preenchida com *, a acertos com 0 e o tabuleiro com letras
                     for (j.linha = 0; j.linha < 4; j.linha++) {
