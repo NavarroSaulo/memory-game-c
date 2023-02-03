@@ -143,8 +143,7 @@ int main() {
                         t.mascara[j.c1][j.c2] = t.tabuleiro[j.c1][j.c2];
                         printarTabuleiro(j.linha, j.numlinha, j.coluna, t.mascara);
                         reset();
-                        if (t.matrizAcertos[j.l1][j.l2] == 1) {  // Serie de verificações para ver o jeito que a pessoa errou e a coordenada volta a ser *
-                        repetida:                                // label
+                        if (t.matrizAcertos[j.l1][j.l2] == 1) {  // Serie de verificações para ver o jeito que a pessoa errou e a coordenada volta a ser *                                // label
                             printf("\n\tCoordenada repetida, tente novamente\n");
                             t.mascara[j.c1][j.c2] = '*';
                         } else if (t.matrizAcertos[j.c1][j.c2] == 1) {
