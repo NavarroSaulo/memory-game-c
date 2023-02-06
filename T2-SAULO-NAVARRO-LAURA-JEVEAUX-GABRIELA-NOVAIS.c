@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 typedef struct Jogo {
@@ -165,19 +166,21 @@ int main(int argc, char *argv[]) {
                         printf("Erro ao abrir!\n");
                         exit(1);
                     } else {
-                        fprintf(arq, "Tabuleiro:\n", stdout);
+                        fprintf(arq, "Tabuleiro:\n");
                         for (j->linha = 0; j->linha < t->tamanhoTab; j->linha++) {
                             for (j->coluna = 0; j->coluna < t->tamanhoTab; j->coluna++) {
                                 fprintf(arq, "  %c  ", t->tabuleiro[j->linha][j->coluna]);
                             }
-                            fprintf(arq, "\n\n", stdout);
+                            fprintf(arq, "\n\n");
                         }
                     }
                     fclose(arq);
 
                     printf("\n\tVoce tem 10 segundos para memorizar o tabuleiro\n");
+                    printf("\n");
                     usleep(2000000);                                                                  // unistd, espera o parametro em ms antes de passar para a proxima linha
                     printarTabuleiro(j->linha, j->numlinha, j->coluna, t->tamanhoTab, t->tabuleiro);  // printar tabuleiro completo
+                    printf("\n");
                     usleep(10000000);
                     sJ->emPartida = true;  // pra nao ficar remontando o tabuleiro
                 } while (sJ->emPartida == false);
@@ -197,10 +200,10 @@ int main(int argc, char *argv[]) {
                                         if (t->matrizAcertos[j->linha][j->coluna] == 1) {
                                             fprintf(result, "  %c  ", t->tabuleiro[j->linha][j->coluna]);
                                         } else {
-                                            fprintf(result, "  *  ", stdout);  // Printa vazio se não houver um par
+                                            fprintf(result, "  *  ");  // Printa vazio se não houver um par
                                         }
                                     }
-                                    fprintf(result, "\n\n", stdout);
+                                    fprintf(result, "\n\n");
                                 }
                                 fclose(result);
                                 return 0;
@@ -227,14 +230,17 @@ int main(int argc, char *argv[]) {
                                 printf("\n\t %s: ", argv[i]);
                                 printf("%d", p->pontos[i - 3]);
                             }
+                            printf("\n");
                             usleep(2000000);
                             reset();  // Volta pra cor normal
+                            printf("\n");
                             usleep(1000000);
                             if (j->pares == ((t->tamanhoTab * t->tamanhoTab) / 2)) {
                                 printf("\e[H\e[2J");
                                 blue();
                                 printf("\n\tPARABENS POR VENCER O JOGO!\n");
                                 reset();
+                                printf("\n");
                                 usleep(5000000);
                                 sJ->emPartida = false;
                                 return 0;
@@ -270,6 +276,7 @@ int main(int argc, char *argv[]) {
                                 t->mascara[j->c1 - 1][j->c2 - 1] = '*';
                             }
                             reset();
+                            printf("\n");
                             usleep(2000000);
                         }
                     }
@@ -281,10 +288,10 @@ int main(int argc, char *argv[]) {
                         if (t->matrizAcertos[j->linha][j->coluna] == 1) {
                             fprintf(result, "  %c  ", t->tabuleiro[j->linha][j->coluna]);
                         } else {
-                            fprintf(result, "  *  ", stdout);  // Printa vazio se não houver um par
+                            fprintf(result, "  *  ");  // Printa vazio se não houver um par
                         }
                     }
-                    fprintf(result, "\n\n", stdout);
+                    fprintf(result, "\n\n");
                 }
                 fclose(result);
 
