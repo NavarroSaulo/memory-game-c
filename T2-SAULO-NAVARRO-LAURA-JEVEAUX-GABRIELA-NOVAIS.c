@@ -35,7 +35,7 @@ typedef struct Tabuleiro {
 } tsTabuleiro;
 
 typedef struct Jogadores {
-    char *jogadores;  // Ponteiro do tipo char, para registrar os jogadores
+    char *jogadores;
 } tJogadores;
 
 typedef struct Pontuacao {
@@ -52,7 +52,6 @@ bool voltarMenu(char escolha, int novoJogo);
 void gerarLetras(int *vetor, int sementeFixa, int semente, int tamanhoTab);
 void embaralharLetras(int *vetorEmbaralhado, int *vetor, int tamanho);
 void printarTabuleiro(int linha, int contadorLinha, int coluna, int tamanho, char **tabuleiro);
-// void printaPontos(int numeroJogadores, char *jogadores, int *pontos);
 
 int main(int argc, char *argv[]) {
     if (argc < 3) {
@@ -311,7 +310,7 @@ int main(int argc, char *argv[]) {
     free(t->tabuleiro);
     free(t->mascara);
     free(t);
-    // free(p);
+    free(p);
     return 0;
 }
 
@@ -385,7 +384,6 @@ void printarTabuleiro(int linha, int contadorLinha, int coluna, int tamanho, cha
         printf("%d   ", coluna + 1);
     }
     printf("\n\n");
-    // printf("    1   2   3   4\n\n");  // Colunas
     for (linha = 0; linha < tamanho; linha++) {
         printf("%d  ", contadorLinha);  // Linhas
         contadorLinha++;
@@ -396,12 +394,6 @@ void printarTabuleiro(int linha, int contadorLinha, int coluna, int tamanho, cha
         printf("\n\n");
     }
 }
-
-// void printaPontos(int numeroJogadores, char *jogadores, int *pontos) {
-// for (int i = 1; i < numeroJogadores; i++) {
-//     printf("%s", jogadores[i]);
-// }
-// }
 
 void red() {
     printf("\033[0;31m");
