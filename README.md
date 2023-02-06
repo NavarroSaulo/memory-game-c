@@ -28,7 +28,8 @@ Antes de começar, é bom ter um editor para trabalhar com o código como [VSCod
 
 # Abrir e rodar o projeto
 
-- Para a execução do projeto, basta baixar o arquivo "LINUX.c", abrir um terminal e compilar, após isso basta abrir o executável. Ou utilizando o make, baixando também o arquivo makefile e digitando no terminal "make" e em seguida "make run".
+- Para a execução do projeto, basta baixar o arquivo "T1-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c", abrir um terminal e compilar, após isso basta abrir o executável. Ou utilizando o make(apenas versão 1), baixando também o arquivo makefile e digitando no terminal "make" e em seguida "make run".
+- Para a execução do projeto 2, baixe o arquivo "T2-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c", compile em um terminal, ao executar, insira também os seguintes parâmetros nessa ordem: "NomeDoArquivo.txt" "TamanhoDoTabuleiro" "NomeDosJogadores". Não utilize as aspas.
 
 # Contribuição
 

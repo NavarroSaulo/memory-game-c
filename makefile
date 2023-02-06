@@ -1,9 +1,9 @@
 
 all: 
-	gcc -Wall -o LINUX LINUX.c 
+	gcc -Wall -o memory_game T1-SAULO-NAVARRO-LAURA-JEVEAUX-GABRIELA-NOVAIS.c 
 
 run:
-	./LINUX
+	./memory_game 
 
 clean:
-	rm LINUX.o
+	rm memory_game.o

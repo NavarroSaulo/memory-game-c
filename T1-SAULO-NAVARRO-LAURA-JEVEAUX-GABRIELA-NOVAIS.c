@@ -107,11 +107,12 @@ int main() {
 
                 while (sJ.emPartida == true) {  // agora que está em partida e o tabuleiro foi montado, hora de jogar
                     printarTabuleiro(j.linha, j.numlinha, j.coluna, t.mascara);
-                    printf("\n\tDigite duas coordenadas linha coluna (0 0 0 0 pra encerrar): ");
                     do {
+                        printf("\n\tDigite duas coordenadas linha coluna (0 0 0 0 pra encerrar): ");
                         scanf("%d %d %d %d", &j.l1, &j.l2, &j.c1, &j.c2);
                         if ((j.l1 + j.l2 + j.c1 + j.c2) == 0) {  // Caso digite 0 0 0 0
                             sJ.emPartida = false;
+                            return 0;
                         } else if (j.l1 == j.c1 && j.l2 == j.c2) {  // mesma coordenada, por exemplo 3 1 3 1
                             red();
                             printf("\n\tCoordenada Repetida\n");
